@@ -1,0 +1,82 @@
+body {
+    margin: 0;
+}
+
+.menu-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.menu-icon {
+    width: 50px;
+    height: 50px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.menu-icon .bar {
+    width: 30px;
+    height: 3px;
+    background-color: blueviolet;
+    transition: all 0.3s ease;
+    position: absolute;
+}
+
+/* default location for the three bars */
+.menu-icon .bar:nth-child(1) {
+    transform: translateY(-8px);
+}
+
+.menu-icon .bar:nth-child(3) {
+    transform: translateY(8px);
+}
+
+/* transformed positions */
+.menu-icon.active .bar:nth-child(1) {
+    transform: rotate(45deg);
+}
+
+.menu-icon.active .bar:nth-child(3) {
+    transform: rotate(-45deg);
+}
+
+/* make this one hide */
+.menu-icon.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+nav {
+    width: 60%;
+    background-color: blueviolet;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+    /* hide menu offscreen to the left */
+    transform: translateX(-100%);
+    transition: trasnform 0.3s ease-in-out;
+    z-index: 100;
+}
+
+nav.is-open {
+    transform: translateX(0);
+}
+
+nav a {
+    color: #fff;
+    display: block;
+    padding: .5rem 0;
+    text-decoration: none;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+}
